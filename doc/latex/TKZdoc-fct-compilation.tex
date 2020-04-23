@@ -1,4 +1,3 @@
-%!TEX root = /Users/ego/Boulot/TKZ/tkz-fct/doc-fr/TKZdoc-fct-main.tex
 \section{Utilisation de Gnuplot}
 %–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––> 
 \subsection{Mécanisme d'interaction entre \TIKZ\ et \tkzname{Gnuplot}}
@@ -68,7 +67,7 @@ sample.pdf
   \draw[->] (B.south) -- (14.1,-8.18);
   \draw[->] (12 ,-11.1)--(C.east);
   \draw[->] (C.west)--(4.2,-11.1); 
- \draw[->,magenta] (4.2,2.9) to [ out =-80,in=260] node[below,pos=.5]{étape 1} (12,2.9);
+  \draw[->,magenta] (4.2,2.9) to [ out =-80,in=260] node[below,pos=.5]{étape 1} (12,2.9);
   \draw[->,magenta] (14.1,0) to [ out =200,in=160] node[left,pos=.5]{étape 2} (14.1,-8.18);   
   \draw[->,magenta] (12 ,-11.1) to [ out =110,in=70] node[above,pos=.5]{étape 3} (4.2,-11.1); 
   \end{tikzpicture}
@@ -213,7 +212,7 @@ Enregister le code suivant dans un fichier avec le nom test.tex, puis compiler a
  \end{document}    
 \end{tkzltxexample}
 
-\begin{tkzexample}[latex=8cm]
+\begin{tkzexample}[vbox,small]
 	\begin{tikzpicture}
 	    \tkzInit[xmin=-5,xmax=5,ymax=2]  
 	    \tkzGrid

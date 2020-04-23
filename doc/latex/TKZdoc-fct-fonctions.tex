@@ -107,16 +107,16 @@ Ensuite, j'utilise les macros pour placer des points
 
 Attention, ici  \tkzname{ystep=6} or \tkzname{gnuplot} donne $80\div=13$. il faut donc écrire $80.$
 
-\begin{tkzexample}[vbox]
- \begin{tikzpicture}[scale=0.4]
- \tkzInit[xmax=30,ymax=90,ystep=6]
- \tkzAxeX[nograd,noticks,poslabel=right,label=$t$] 
- \tkzAxeY[nograd,noticks,poslabel=above,label=$P$] 
- \tkzFct[line width=1pt,color=red,dashed,domain=0:30]{80.0}
- \tkzFct[line width=1pt,color=blue,domain=0:30]{80/(1.0+4.0*exp(-0.21*x))}
- \tkzText[above,color=red](20,80){$P=80$}
-\end{tikzpicture}  
-\end{tkzexample}
+% \begin{tkzexample}[vbox]
+%  \begin{tikzpicture}[scale=0.4]
+%  \tkzInit[xmax=30,ymax=90,ystep=6]
+%  \tkzAxeX[nograd,noticks,poslabel=right,label=$t$]
+%  \tkzAxeY[nograd,noticks,poslabel=above,label=$P$]
+%  \tkzFct[line width=1pt,color=red,dashed,domain=0:30]{80.0}
+%  \tkzFct[line width=1pt,color=blue,domain=0:30]{80/(1.0+4.0*exp(-0.21*x))}
+%  \tkzText[above,color=red](20,80){$P=80$}
+% \end{tikzpicture}
+% \end{tkzexample}
 
 \subsection{Les fonctions affines ou linéaires}
 Pour obtenir des droites, on peut utiliser \tkzname{gnuplot} même si l'outil est un peu lourd dans ce cas. Pour alléger les calculs, il est possible de ne demander que deux points !

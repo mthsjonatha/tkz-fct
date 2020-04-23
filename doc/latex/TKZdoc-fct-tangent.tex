@@ -1,4 +1,3 @@
-%!TEX root = /Users/ego/Boulot/TKZ/tkz-fct/doc-fr/TKZdoc-fct-main.tex    
 \section{Macros pour tracer des tangentes }
 
 Si une seule fonction est utilisée, elle est stockée avec comme nom
@@ -38,13 +37,13 @@ options             & défaut & définition                         \\
 \subsection{Tangente avec \tkzname{xstep} et \tkzname{ystep} différents de 1}
 
 \begin{tikzpicture}[xscale=1.5]
-  \tikzset{tan style/.style={-}}
+ \tikzset{tan style/.style={-}}
  \tkzInit[xmin=0,xmax=800,xstep=100,ymin=0,ymax=1800,ystep=400]
  \tkzGrid[color=brown,sub,subxstep=50,subystep=200](0,0)(800,1800)
-  \tkzAxeXY
-  \tkzFct[color=red,samples=100,domain = 0:800]%
+ \tkzAxeXY
+ \tkzFct[color=red,samples=100,domain = 0:800]%
     {(1./90000)*\x*\x*\x-(1./100)*\x*\x+(113./36)*\x}
-  \tkzDrawTangentLine[draw,color=blue,kr=300,kl=450,coord](450)
+ \tkzDrawTangentLine[draw,color=blue,kr=300,kl=450](450)
   \tkzText[draw,color = black,fill = brown!50,opacity  = 0.8](300,1200)%
  {$f(x)=\dfrac{1}{90000}x^3 -\dfrac{1}{{100}}x^2 +\dfrac{113}{36}x$}
  \end{tikzpicture}
@@ -160,7 +159,7 @@ Ici, on ne veut que les demi-tangentes comprises entre 0 et 1, pour cela il suff
   \tkzGrid(0,0)(1,1)
   \tkzAxeXY
   \tkzFct[color = red,thick, domain =0:1]{(exp(\x)-1)/(exp(1)-1)}
-  \tkzSetUpPoint[size=12]
+  \tkzSetUpPoint[size=4]
   \tkzDrawTangentLine[draw, kl = 0,  kr = 0.4](0)
   \tkzDrawTangentLine[draw, kl = 0.4,kr = 0  ](1)   
   \tkzText[draw,color = red,fill = orange!20](0.5,0.6)%
@@ -223,7 +222,7 @@ Un problème surgit si on emploie une expression contenant des parenthèses dans
 \begin{center}
 \begin{tkzexample}[]  
 \begin{tikzpicture}[scale=1]
-  \tkzInit[xmax=1,xstep=0.1,ymin=0.0,ymax=1,ystep=0.1]
+  \tkzInit[xmax=1,xstep=0.1,ymin=0.5,ymax=1,ystep=0.1]
   \tkzGrid      \tkzAxeXY
   \tkzFct[domain = 0.00001:1]{(\x**\x)}
   \tkzDrawTangentLine[draw,color = red, kr = 0.2,kl = 0.2]({1/exp(1)}) 
