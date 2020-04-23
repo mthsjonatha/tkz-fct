@@ -1,19 +1,19 @@
-%!TEX root = /Users/ego/Boulot/TKZ/tkz-fct/doc-fr/TKZdoc-fct-main.tex  
+%!TEX root = /Users/ego/Boulot/TKZ/tkz-fct/doc-fr/TKZdoc-fct-main.tex
 \section{Macros pour définir  des surfaces  }
 
-Il s'agit par exemple de représenter la partie du plan comprise entre la courbe représentative d'une fonction, l'axe des abscisses et les droites 
+Il s'agit par exemple de représenter la partie du plan comprise entre la courbe représentative d'une fonction, l'axe des abscisses et les droites
  d'équation $x=a$ et $x=b$.
 
-\subsection{Représentation d'une surface \tkzcname{tkzDrawArea} ou \tkzcname{tkzArea}}  \hypertarget{tda}{} 
+\subsection{Représentation d'une surface \tkzcname{tkzDrawArea} ou \tkzcname{tkzArea}}  \hypertarget{tda}{}
 
-\begin{NewMacroBox}{tkzDrawArea}{\oarg{local options}} 
+\begin{NewMacroBox}{tkzDrawArea}{\oarg{local options}}
 Les options sont celles de \TIKZ.
 
 \begin{tabular}{lll}
 \toprule
-options             & défaut & définition                         \\ 
+options             & défaut & définition                         \\
 \midrule
-\TOline{domain}{-5:5}{domaine de la fonction} 
+\TOline{domain}{-5:5}{domaine de la fonction}
 \TOline{with}{a}{référence de la fonction}
 \TOline{color}{200}{nombre de points utilisés}
 \TOline{opacity} {no defaut}{trnsparence}
@@ -41,9 +41,9 @@ options             & défaut & définition                         \\
  \tkzDrawArea[color=red!30,
               domain = 1:2]
  \tkzPointShowCoord(A)
- \tkzPointShowCoord(B) 
- \tkzDrawPoints(A,B)  
-\end{tikzpicture} 
+ \tkzPointShowCoord(B)
+ \tkzDrawPoints(A,B)
+\end{tikzpicture}
 \end{tkzexample}
 
 \subsection{Surface simple}
@@ -69,12 +69,12 @@ options             & défaut & définition                         \\
 \begin{tikzpicture}[scale=2]
   \tkzInit[xmin=-3,xmax=4,ymin=-2,ymax=4]
   \tkzGrid(-3,-2)(4,4)
-  \tkzDrawXY 
+  \tkzDrawXY
   \tkzFct[domain = -2.15:3.2]{(2+\x)*exp(-\x)}
-  \tkzDrawArea[pattern=north west lines,domain =-2:2]   
+  \tkzDrawArea[pattern=north west lines,domain =-2:2]
   \tkzDrawTangentLine[draw,color=blue](0)
   \tkzDrawTangentLine[draw,color=blue](-1)
-  \tkzDefPointByFct(2)  \tkzGetPoint{C}  
+  \tkzDefPointByFct(2)  \tkzGetPoint{C}
   \tkzDefPoint(2,0){B}
   \tkzDrawPoints(B,C)  \tkzLabelPoints[above right](B,C)
   \tkzRep
@@ -83,19 +83,19 @@ options             & défaut & définition                         \\
    %<--------------------------------------------------------------------------->
 
 \newpage
-\subsection{Surface comprise entre  deux courbes \tkzcname{tkzDrawAreafg}} 
+\subsection{Surface comprise entre  deux courbes \tkzcname{tkzDrawAreafg}}
 
-\hypertarget{tdafg}{} 
-\begin{NewMacroBox}{tkzDrawAreafg}{\oarg{local options}} 
-Cette macro permet de mettre en évidence une surface délimitée par les courbes représentatives de deux fonctions. La courbe (a) doit être au-dessus de la courbe (b). 
+\hypertarget{tdafg}{}
+\begin{NewMacroBox}{tkzDrawAreafg}{\oarg{local options}}
+Cette macro permet de mettre en évidence une surface délimitée par les courbes représentatives de deux fonctions. La courbe (a) doit être au-dessus de la courbe (b).
 
 \medskip
 \begin{tabular}{lll}
  \toprule
- options             & défaut & explication    \\ 
-\midrule 
-\TOline{between} {a and b}{référence des deux courbes} 
-\TOline{domain= min:max}{domain=-5:5}{Les options sont celles de \TIKZ.} 
+ options             & défaut & explication    \\
+\midrule
+\TOline{between} {a and b}{référence des deux courbes}
+\TOline{domain= min:max}{domain=-5:5}{Les options sont celles de \TIKZ.}
 \TOline{opacity} {0.5}{transparence}
 \bottomrule
 \end{tabular}
@@ -112,7 +112,7 @@ Par défaut, la surface définie est comprise entre les deux premières courbes.
    \tkzInit[xmax=5,ymax=5]
    \tkzGrid  \tkzAxeXY
    \tkzFct[domain = 0:5]{x}
-   \tkzFct[domain = 1:5]{log(x)} 
+   \tkzFct[domain = 1:5]{log(x)}
    \tkzDrawAreafg[color  = orange!50,domain = 1:5]
  \end{tikzpicture}
 \end{tkzexample}
@@ -135,19 +135,19 @@ Par défaut, la surface définie est comprise entre les deux premières courbes.
     \tkzFct[domain = 1:5]{log(x)}
     \tkzDrawAreafg[between= a and b,pattern=north west lines,domain = 1:5]
   \end{tikzpicture}
-  \end{tkzexample} 
+  \end{tkzexample}
 \end{center}
 
 %<--------------------------------------------------------------------------->
 \subsection{Surface comprise entre deux courbes avec l'option \tkzname{between}}
-Attention à l'ordre des références dans l'option \tkzname{between}. Seule la partie de la surface (b) est au-dessus de (a) est représentée. 
+Attention à l'ordre des références dans l'option \tkzname{between}. Seule la partie de la surface (b) est au-dessus de (a) est représentée.
 
 \begin{tkzexample}[latex=7cm]
 \begin{tikzpicture}[scale=1.25]
  \tkzInit[ymin=-1,xmax=5,ymax=3]
  \tkzGrid
- \tkzAxeXY  
- \tkzFct[domain = 0.5:5]{1/x}% courbe a 
+ \tkzAxeXY
+ \tkzFct[domain = 0.5:5]{1/x}% courbe a
  \tkzFct[domain = 1:5]{log(x)}% courbe b
  \tkzDrawAreafg[between=b and a,
             color=magenta!50,
@@ -164,14 +164,14 @@ Ici aussi, attention à l'ordre des références dans l'option \tkzname{between}
 \begin{tikzpicture}[scale=1.25]
   \tkzInit[xmax=1,ymax=1,xstep=0.1,ystep=0.1]
   \tkzGrid
-  \tkzAxeXY   
+  \tkzAxeXY
   \tkzFct[color   = red,domain = 0:1]{(exp(\x)-1)/(exp(1)-1)}
   \tkzFct[color   = blue,domain = 0:1]{\x*\x*\x}
   \tkzFct[color  = green,domain = 0:1]{\x}
   \tkzDrawAreafg[between = c and b,color=purple!40,domain = 0:1]
   \tkzDrawAreafg[between = c and a,color=gray!60,domain = 0:1]
-\end{tikzpicture}  
-\end{tkzexample} 
+\end{tikzpicture}
+\end{tkzexample}
 
 %<--------------------------------------------------------------------------->
 \subsection{Mélange de style}
@@ -193,7 +193,7 @@ Ici aussi, attention à l'ordre des références dans l'option \tkzname{between}
 
 \newpage  %<--------------------------------------------------------------------------->
 \subsection{Courbes de niveaux}
-Le code est intéressant pour la définition des fonctions constantes  aux lignes 10 et 11. 
+Le code est intéressant pour la définition des fonctions constantes  aux lignes 10 et 11.
 
 \begin{tkzexample}[num]
 \begin{tikzpicture}[scale=.75]
@@ -215,4 +215,4 @@ Le code est intéressant pour la définition des fonctions constantes  aux ligne
 \end{tikzpicture}%
 \end{tkzexample}
 
-\endinput   
+\endinput

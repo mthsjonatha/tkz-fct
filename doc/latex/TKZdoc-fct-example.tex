@@ -1,5 +1,5 @@
-%!TEX root = /Users/ego/Boulot/TKZ/tkz-fct/doc-fr/TKZdoc-fct-main.tex     
-\section{Quelques exemples}      
+%!TEX root = /Users/ego/Boulot/TKZ/tkz-fct/doc-fr/TKZdoc-fct-main.tex
+\section{Quelques exemples}
 
 \subsection{Variante intermédiaire : \TIKZ\ + \tkzname{tkz-fct}}
 Les codes de \TIKZ\ et de \tkzname{tkz-fct} peuvent se compléter. Ainsi les axes et les textes sont gérés par \tkzname{tkz-fct} mais la courbe est laissée à \TIKZ\ et \tkzname{gnuplot}.
@@ -19,16 +19,16 @@ Les codes de \TIKZ\ et de \tkzname{tkz-fct} peuvent se compléter. Ainsi les axe
 	  \tkzText[draw,color= black,fill=brown!50](2,-1)%
 	          {$\mathcal{A} = \int_1^{\text{e}}\ln(x)\text{d}x =%
 	            \big[x\ln(x)\big]_{1}^{\text{e}} = \text{e}$}
-	  \tkzText[draw,color= black,fill=brown!50](2,0.3){$\mathcal{A}$}   
+	  \tkzText[draw,color= black,fill=brown!50](2,0.3){$\mathcal{A}$}
 	 \end{tikzpicture}
-	\end{tkzexample} 
+	\end{tkzexample}
 \end{center}
 
- \newpage  
+ \newpage
  \subsection{Courbes de \tkzname{Lorentz}}
 
- $f(x)=\dfrac{\text{e}^x-1}{\text{e}-1}$ et $g(x)=x^3$ 
- 
+ $f(x)=\dfrac{\text{e}^x-1}{\text{e}-1}$ et $g(x)=x^3$
+
 
 \begin{center}
 \begin{tkzexample}[vbox]
@@ -49,20 +49,20 @@ Les codes de \TIKZ\ et de \tkzname{tkz-fct} peuvent se compléter. Ainsi les axe
   \tkzDrawAreafg[between=c and b,color=blue!40,domain = 0:1]
   \tkzDrawAreafg[between=c and a,color=red!60,domain = 0:1]
 \end{tikzpicture}
-\end{tkzexample}   
+\end{tkzexample}
 \end{center}
 
 
- \newpage  
- \subsection{Courbe exponentielle}  
-   $f(x) = (-x^2+x+2)\exp(x)$ 
-   
+ \newpage
+ \subsection{Courbe exponentielle}
+   $f(x) = (-x^2+x+2)\exp(x)$
+
 \begin{center}
-\begin{tkzexample}[small] 
-\begin{tikzpicture}[scale=1.25]   
+\begin{tkzexample}[small]
+\begin{tikzpicture}[scale=1.25]
    \tkzInit[xmin=-6,xmax=4,ymin=-5,ymax=6]
    \tkzGrid
-   \tkzAxeXY  
+   \tkzAxeXY
    \tkzFct[color=red,thick,domain=-6:2.1785]{(-x*x+x+2)*exp(x)}
    \tkzSetUpPoint[size=6]
    \tkzDrawTangentLine[draw,kl=2](0)
@@ -71,11 +71,11 @@ Les codes de \TIKZ\ et de \tkzname{tkz-fct} peuvent se compléter. Ainsi les axe
    \tkzText(2,4){($\mathcal{C}$)}
    \tkzText(-2,-3){($\mathcal{T}$)}
 \end{tikzpicture}
-\end{tkzexample} 
+\end{tkzexample}
 \end{center}
 
 
- \subsection{Axe logarithmique} 
+ \subsection{Axe logarithmique}
 \begin{tkzexample}[vbox]
 \begin{tikzpicture}[scale=0.8]
  \tkzInit[xmax=14,ymax=12]
@@ -85,11 +85,11 @@ Les codes de \TIKZ\ et de \tkzname{tkz-fct} peuvent se compléter. Ainsi les axe
      {\draw[shift={(\x,0)}] node[below] {$\xtext$ };}
  \foreach \y/\z in {0/0,3/1,6/2,9/3,12/4}%
      {\draw[shift={(0,\y)}] node[left] {$10^{\z}$};}
- \foreach \x in {1,2,...,14}{\tkzVLine[gray,thin]{\x}}   
+ \foreach \x in {1,2,...,14}{\tkzVLine[gray,thin]{\x}}
  \foreach \y in {3,6,...,12}{\tkzHLine[gray,thin]{\y}}
  \foreach \y in {0,3,...,9}{
  \foreach \z in {0.903,1.431,1.806,2.097,2.334,2.535,2.709,2.863}%
-   {\tkzHLine[thin,gray,shift={(0,\y)}] {\z}}}  
+   {\tkzHLine[thin,gray,shift={(0,\y)}] {\z}}}
  \tkzDefPoint(0,6.90){a}
  \tkzDefPoint(10,9.30){b}
  \tkzDrawPoints(a,b)
@@ -98,12 +98,12 @@ Les codes de \TIKZ\ et de \tkzname{tkz-fct} peuvent se compléter. Ainsi les axe
 \end{tikzpicture}
 \end{tkzexample}
 
- \subsection{Un peu de tout} 
-\begin{tkzexample}[vbox]   
+ \subsection{Un peu de tout}
+\begin{tkzexample}[vbox]
 \begin{tikzpicture}[scale=.8]
  \tkzInit[xmin=5,xmax=40,ymin=0,ymax=350,xstep=2.5,ystep=25]
  \tkzDrawX[label=$q$]
- \tkzDrawY[label=$C(q)$] 
+ \tkzDrawY[label=$C(q)$]
  \tkzLabelXY
  \tkzGrid[orange]
  \tkzFct[domain=5:40]{0.1*\x**2+2*\x+60}
@@ -111,11 +111,11 @@ Les codes de \TIKZ\ et de \tkzname{tkz-fct} peuvent se compléter. Ainsi les axe
    \tkzDefPointByFct(\vv)
     \tkzDrawPoint(tkzPointResult)}
  \tkzFct[domain=5:40]{(108*log(\x)-158)}
- \tkzText(37.5,285){$C$} 
+ \tkzText(37.5,285){$C$}
  \tkzText(37.5,220){$R$}
  \tkzDefSetOfPoints{%
  5/15,10/90,15/135,20/170,25/190,30/200,35/230,40/240}
-\tkzDrawSetOfPoints[mark = x,mark size=3pt]   
+\tkzDrawSetOfPoints[mark = x,mark size=3pt]
 \end{tikzpicture}
-\end{tkzexample}   
+\end{tkzexample}
 \endinput

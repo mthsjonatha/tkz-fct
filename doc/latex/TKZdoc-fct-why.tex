@@ -1,7 +1,7 @@
-%!TEX root = /Users/ego/Boulot/TKZ/tkz-fct/doc-fr/TKZdoc-fct-main.tex    
+%!TEX root = /Users/ego/Boulot/TKZ/tkz-fct/doc-fr/TKZdoc-fct-main.tex
 \section{Fonctionnement}
 
-\TIKZ\ apporte différentes possibilités pour obtenir les représentations graphiques des fonctions. J'ai privilégié l'utilisation de \tkzname{gnuplot}, car je trouve \tkzname{pgfmath} trop lent et les résultats trop imprécis. 
+\TIKZ\ apporte différentes possibilités pour obtenir les représentations graphiques des fonctions. J'ai privilégié l'utilisation de \tkzname{gnuplot}, car je trouve \tkzname{pgfmath} trop lent et les résultats trop imprécis.
 
 Avec \TIKZ\ et \tkzname{gnuplot}, on obtient la représentation d'une fonction à l'aide de
 \begin{tkzltxexample}[]
@@ -12,7 +12,7 @@ Avec \TIKZ\ et \tkzname{gnuplot}, on obtient la représentation d'une fonction �
 
 La macro \tkzcname{tkzFct} remplace \tkzcname{draw plot function} mais exécute deux tâches supplémentaires, en plus du tracé. Tout d'abord, l'expression de la fonction est sauvegardée avec la syntaxe de \tkzname{gnuplot} et également  sauvegardée avec la syntaxe de  \tkzname{fp} pour une utilisation ultérieure. Cela permet, sans avoir à redonner l'expression, de placer par exemple, des points sur la courbe (les images sont calculées à l'aide de  \tkzname{fp}), ou bien encore, de tracer des tangentes.
 
-Ensuite, et c'est le plus important, \tkzcname{tkzFct} tient compte des unités utilisées pour l'axe des abscisses et celui des ordonnées. Ces unités sont définies en utilisant la macro \tkzcname{tkzInit} du package \tkzname{tkz-base} avec les options \tkzname{xstep} et \tkzname{ystep}. 
+Ensuite, et c'est le plus important, \tkzcname{tkzFct} tient compte des unités utilisées pour l'axe des abscisses et celui des ordonnées. Ces unités sont définies en utilisant la macro \tkzcname{tkzInit} du package \tkzname{tkz-base} avec les options \tkzname{xstep} et \tkzname{ystep}.
 
 La macro \tkzcname{tkzFct} intercepte les valeurs données à l'option \tkzname{domain} et évidemment l'expression mathématique de la fonction;
 si \tkzname{xstep} et \tkzname{ystep} diffèrent de 1 alors il est tenu compte de ces valeurs pour le domaine, ainsi que pour les calculs d'images. Lorsque \tkzname{xstep} diffère de 1 alors l'expression donnée, doit utiliser uniquement \tkzcname{x} comme variable, c'est ainsi qu'il est possible d'ajuster les valeurs.  Cela permet d'éviter des débordements dans les calculs.
@@ -26,7 +26,7 @@ Par exemple, soit à tracer le graphe de la fonction $f$  définie par :
 Les valeurs de $f(x)$ sont comprises entre 0 et $\numprint{1000000}$. En choisissant \tkzname{xstep=10} et \tkzname{ystep=100000}, les axes auront environ $10$ cm de longueur (sans mise à l'échelle).
 
 Les valeurs du domaine seront comprises entre $0$ et $10$, mais l'expression donnée à \tkzname{gnuplot}, comportera des  \tkzcname{x} équivalents à $x \times 10$, enfin, la valeur finale  sera divisée par \tkzname{ystep=100000}. Les valeurs de $f(x)$ resteront ainsi  comprises entre $0$ et $10$.
- 
+
  \begin{tkzexample}[latex=10cm,small]
 \begin{tikzpicture}[scale=.5]
   \tkzInit[xmax=100,xstep=10,
@@ -34,7 +34,7 @@ Les valeurs du domaine seront comprises entre $0$ et $10$, mais l'expression don
            ystep=100000]
   \tkzAxeX[right]
   \tkzAxeY[above]
-  \tkzGrid 
+  \tkzGrid
   \tkzFct[color=red,
           domain=0:100]{\x**3}
 \end{tikzpicture}

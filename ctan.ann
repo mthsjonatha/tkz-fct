@@ -1,0 +1,4 @@
+Changes in this version:
+- Correction of a bug (incompatibility between tkz-fct and tkzexample).
+- Add compatibility between tkz-fct and tkz-base.
+- Correction of the documentation.

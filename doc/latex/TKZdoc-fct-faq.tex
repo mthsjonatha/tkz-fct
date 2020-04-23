@@ -1,4 +1,4 @@
-%!TEX root = /Users/ego/Boulot/TKZ/tkz-fct/doc-fr/TKZdoc-fct-main.tex  
+%!TEX root = /Users/ego/Boulot/TKZ/tkz-fct/doc-fr/TKZdoc-fct-main.tex
 \section{Quelques remarques}
 
 \begin{enumerate}
@@ -22,19 +22,19 @@ La dernière macro utilisée est également sauvegardée sous les deux syntaxes 
    \item Si le fichier xxx.table n'est pas créé, la cause probable est~:
      \begin{itemize}
      \item  soit que \TEX\ ne trouve pas \tkzname{gnuplot}, c'est en général un problème de « PATH »,
-     \item  soit \TEX\  n'autorise pas le lancement de \tkzname{gnuplot} alors c'est que l'option \tkzname{shell-escape} n'est pas autorisé. 
-    \end{itemize} 
- 
-Une autre possibilité est que le fichier xxx.gnuplot soit incorrect. Il suffit de l'ouvrir avec un éditeur pour lire les commandes passées à \tkzname{gnuplot}. Il est à remarquer un changement de syntaxe de \tkzname{gnuplot} autour de la version 4.2. La syntaxe pour créer une table avec des versions ultérieures (4.4 et bientôt 4.5), est désormais  \tkzname{set table}. 
+     \item  soit \TEX\  n'autorise pas le lancement de \tkzname{gnuplot} alors c'est que l'option \tkzname{shell-escape} n'est pas autorisé.
+    \end{itemize}
+
+Une autre possibilité est que le fichier xxx.gnuplot soit incorrect. Il suffit de l'ouvrir avec un éditeur pour lire les commandes passées à \tkzname{gnuplot}. Il est à remarquer un changement de syntaxe de \tkzname{gnuplot} autour de la version 4.2. La syntaxe pour créer une table avec des versions ultérieures (4.4 et bientôt 4.5), est désormais  \tkzname{set table}.
 
 
    \item $\pi$ est, avec \tkzname{gnuplot}, défini par \tkzname{pi}
-   \item  $\pi$ est, avec \tkzname{fp.sty} défini par \tkzcname{FPpi}.   
+   \item  $\pi$ est, avec \tkzname{fp.sty} défini par \tkzcname{FPpi}.
    \item (set) samples =2 est suffisant pour tracer une droite.
   \end{itemize}
- 
+
  \item La puissance $a^b$ est notée $a \wedge b$ avec fp et pgfmath mais $a**b$ avec gnuplot.
- 
+
  \item \tkzname{tkz-fct} modife FP@pow  (code modifié de Christian Tellechea 2009) afin d'autoriser les puissances entières de nombres  négatifs.
 
 
@@ -45,13 +45,13 @@ Une autre possibilité est que le fichier xxx.gnuplot soit incorrect. Il suffit 
 
 
 \begin{tabular}{lll}
-\toprule      
+\toprule
 Gnuplot&fp&Description \\
 +  & +  &  addition\\
 -  & -   &  soustraction\\
 *  & *  &  multiplication\\
-/  & /  &  division\\ 
-**  & \upp  &  exponentiation\\ 
+/  & /  &  division\\
+**  & \upp  &  exponentiation\\
 \%  & absente & modulo \\
 pi  &  pi  &  constante 3.1415   \\
 abs(x) & abs  & Valeur absolue                              \\
@@ -61,23 +61,23 @@ tan(x) & tan &  Arc -cosinus                                \\
 acos(x) & arccos &  Arc -cosinus                            \\
 asin(x) &  arcsin &  Arc-sinus                              \\
 atan(x) &  arctan &  Arc-tangente                           \\
-atan2(y,x) & absente & Arc-tangente                  \\ 
+atan2(y,x) & absente & Arc-tangente                  \\
 \midrule
 cosh(x) & absente & Cosinus hyperbolique                       \\
 sinh(x) & absente & Sinus hyperbolique                         \\
 acosh(x) & absente & Arc-cosinus hyperbolique                  \\
 asinh(x) & absente & Arc-sinus hyperbolique                  \\
-atanh(x) & absente & Arc-tangente hyperbolique                 \\ 
+atanh(x) & absente & Arc-tangente hyperbolique                 \\
 \midrule
 besj0(x) & absente  & Bessel j0                       \\
 besj1(x) & absente & Bessel j1                       \\
 besy0(x) & absente & Bessel y0                       \\
 besy1(x) & absente & Bessel y1                       \\
-\midrule  
+\midrule
 ceil(x) & absente &  Le plus petit entier plus grand que       \\
 floor(x) & absente &  Plus grand entier plus petit que         \\
-absente & trunc(x,n) &  troncature $n$ nombre de décimales        \\ 
-absente & round(x,n) &  arrondi $n$ nombre de décimales         \\ 
+absente & trunc(x,n) &  troncature $n$ nombre de décimales        \\
+absente & round(x,n) &  arrondi $n$ nombre de décimales         \\
 exp(x) & exp  & Exponentielle                               \\
 log(x) & ln &  Logarithme népérien (base e)                 \\
 log10(x) & absente & Logarithme base 10                      \\
@@ -87,19 +87,19 @@ sgn(x) & absente & Signe                                       \\
 sqrt(x) & absente &  Racine carrée                             \\
 tanh(x) & absente & Tangente hyperbolique                      \\
 \bottomrule
-\end{tabular}  
- \endinput 
+\end{tabular}
+ \endinput
 fp
 
  fp.sty    ,neg,min,max,
-	   round,trunc,clip,e,pow,root     
-	   
-	   
-	    
+	   round,trunc,clip,e,pow,root
+
+
+
 Toutes les fonctions qui prennent un angle en paramètre considèrent par défaut la valeur donnée comme étant en radians. Pour changer l'unité, il faut utiliser la commande set angles .
 Les fonctions ceil et floor renvoient un réel.
- Les fonctions erf, erfc, gamma, ibeta, inverf, igamma, invnorm, lgamma et norm agissent sur la partie réelle de leur paramètre. Enfin, la fonction sgn ignore la partie imaginaire   
- 
+ Les fonctions erf, erfc, gamma, ibeta, inverf, igamma, invnorm, lgamma et norm agissent sur la partie réelle de leur paramètre. Enfin, la fonction sgn ignore la partie imaginaire
+
 
 
 
@@ -114,9 +114,9 @@ Les fonctions ceil et floor renvoient un réel.
 
 
      fp
-     
-     
-     
+
+
+
      	 The following macros are public ones to be used in the document:
 	   %controlling messages
 	     \FPmessagestrue	% print standard FP-messages (default)
@@ -153,9 +153,9 @@ Les fonctions ceil et floor renvoient un réel.
 	     \FPmax#1#2#3	% #1 = max(#2,#3)
      - fp-eqn.sty (No warranty on correctness and especially on numerical problems!)
          The following macros are public ones to be used in the document:
-	   \FPlsolve#1#2#3           
+	   \FPlsolve#1#2#3
 		% #1 := x with #2*x+#3=0
-	   \FPqsolve#1#2#3#4#5 
+	   \FPqsolve#1#2#3#4#5
 		% #1,#2 := x with #3*x^2+#4*x+#5 = 0
 	   \FPcsolve#1#2#3#4#5#6#7
 		% #1,#2,#3 := x with #4*x^3+#5*x^2+#6*x+#7 = 0
@@ -213,7 +213,7 @@ Les fonctions ceil et floor renvoient un réel.
 	     copy copies the top element
 	 Example 1:
 	   The macro call
-             \FPupn\result{17 2.5 + 17.5 - 2 1 + * 2 swap /} 
+             \FPupn\result{17 2.5 + 17.5 - 2 1 + * 2 swap /}
 	   is equivalent to
 	     \result := ((17.5 - (17 + 2.5)) * (2 + 1)) / 2
 	   and evaluates to
@@ -248,9 +248,9 @@ Les fonctions ceil et floor renvoient un réel.
 	 )
 	 Known infix operations are
 	   +, -, *, /, ^ for add, sub, mul, div, pow
-	 Each other operation is a prefix one that needs 
+	 Each other operation is a prefix one that needs
 	 a (comma or colon seperated) list of subexpressions.
-	 Exception: The unary prefix operation - is not known! 
+	 Exception: The unary prefix operation - is not known!
 	 (Use the function neg instead.)
 	 Example 1:
 	   With
@@ -262,4 +262,4 @@ Les fonctions ceil et floor renvoient un réel.
 	   \result becomes the value 0.90
 	Example 2:
 	  \FPeval\result{clip(2*3+5*6)}   results to 36
-	  \FPeval\result{clip(2*(3+5)*6)} results to 96    
+	  \FPeval\result{clip(2*(3+5)*6)} results to 96

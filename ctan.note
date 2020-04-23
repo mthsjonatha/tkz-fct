@@ -1,0 +1,6 @@
+The correct locations in the TDS structure are:
+TDS:doc/latex/tkz-fct/TKZdoc-fct.pdf
+TDS:doc/latex/tkz-fct/README.md
+TDS:doc/latex/tkz-fct/latex/TKZdoc-*.*
+TDS:tex/latex/tkz-fct/tkz-fct.sty
+Thanks

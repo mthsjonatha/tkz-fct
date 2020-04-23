@@ -1,5 +1,5 @@
-2011/01/25 
- 
+2011/01/25
+
 This archive contains all the examples of the documentation about tkz-fct.
 
 You need to compile a file with pdflatex or pfdtex to have in the same directory the file tkzpreamble.ltx. This file in in the archive.
@@ -9,10 +9,9 @@ You can also find a Makefile in the archive. The way to use the Makefile is :
 $ cd <path of the archive>
 $ make
 
-Best regards 
+Best regards
 
 Alain Matthes
 
 
 
-                                         
