@@ -1,11 +1,10 @@
-%!TEX root = /Users/ego/Boulot/TKZ/tkz-fct/doc-fr/TKZdoc-fct-main.tex
-\subsection{Interpolation}
+\subsection{Interpolation} 
 
 Il s'agit ici de trouver un polynôme d'interpolation sur l'intervalle $[-1~;~1]$ de la fonction $f$ définie par :
 \[
   f(x)=\frac{1}{1+8x^2}
 \]
-
+ 
 Le polynôme d'interpolation est celui obtenu par la méthode de \tkzimp{Lagrange} :
 \begin{equation*}
 \begin{split}
@@ -16,16 +15,16 @@ Le polynôme d'interpolation est celui obtenu par la méthode de \tkzimp{Lagrang
 \end{split}
 \end{equation*}
 
-Ayant utilisé vingt et un points, le polynôme est de degré $20$. Celui-ci est écrit en utilisant la méthode de \tkzimp{Horner}. Dans un premier temps, on demande à gnuplot de tracer la courbe de f en rouge,  enfin on trace le polynôme d'interpolation en bleu. Les points utilisés sont en jaune.
+Ayant utilisé vingt et un points, le polynôme est de degré $20$. Celui-ci est écrit en utilisant la méthode de \tkzimp{Horner}. Dans un premier temps, on demande à gnuplot de tracer la courbe de f en rouge,  enfin on trace le polynôme d'interpolation en bleu. Les points utilisés sont en jaune. 
 
 \subsubsection{Le code}
 \begin{tkzexample}[code only]
 \begin{tikzpicture}
 \tkzInit[xmin=-1,xmax=1,ymin=-1.8,ymax=1.2,xstep=0.1,ystep=0.2]
-\tkzGrid
-\tkzAxeXY
+\tkzGrid    
+\tkzAxeXY 
 \tkzFct[samples = 400, line width=4pt, color = red,opacity=.5](-1---1){1/(1+8*\x*\x)}
- \tkzFct[smooth,samples = 400, line width=1pt, color = blue,domain =-1:1]%
+ \tkzFct[smooth,samples = 400, line width=1pt, color = blue,domain =-1:1]% 
 {1.0+((((((((((((((((((((
                           8140.04642)*\x
                             +0.01544)*\x
@@ -47,23 +46,23 @@ Ayant utilisé vingt et un points, le polynôme est de degré $20$. Celui-ci est
                             +0.00000)*\x
                             -7.99142)*\x
                             -0.00000)*\x}
- \tkzSetUpPoint[size=16,color=black,fill=yellow]
+ \tkzSetUpPoint[size=16,color=black,fill=yellow]   
  \foreach \v in {-1,-0.8,---.,1}{\tkzDefPointByFct[draw](\v)}
 \end{tikzpicture}
 \end{tkzexample}
 
 Le résultat est sur la page suivante où on peut constater le phénomène de \tkzimp{Runge}.
-\subsubsection{la figure}
+\subsubsection{la figure}  
 
 \begin{sidewaysfigure}[htbp]
-\centering
+\centering 
 \begin{tikzpicture}[scale=.75]
 \tkzInit[xmin=-1,xmax=1,ymin=-1.8,ymax=1.2,xstep=0.1,ystep=0.2]
 \tkzGrid
-\tkzAxeXY
+\tkzAxeXY 
 \tkzFct[samples = 400, line width=4pt, color = red,opacity=.5,domain =-1:1]%
 {1/(1+8*\x*\x)}
- \tkzFct[samples = 400, line width=1pt, color = blue,domain =-1:1]%
+ \tkzFct[samples = 400, line width=1pt, color = blue,domain =-1:1]% 
 {1.0+
 ((((((((((((((((((((
            8140.04642)*\x
@@ -86,12 +85,12 @@ Le résultat est sur la page suivante où on peut constater le phénomène de \t
              +0.00000)*\x
              -7.99142)*\x
              -0.00000)*\x}
- \tkzSetUpPoint[size=8,color=black,fill=yellow]
+ \tkzSetUpPoint[size=8,color=black,fill=yellow]   
  \foreach \v in {-1,-0.8,---.,1}%
- {\tkzDefPointByFct[draw](\v)}
+ {\tkzDefPointByFct[draw](\v)}           
 \end{tikzpicture}
 \caption{Interpolation : $\dfrac{1}{1+8x^2}$}
 \end{sidewaysfigure}
 
-\endinput
+\endinput 
 

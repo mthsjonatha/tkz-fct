@@ -1,8 +1,8 @@
 -- Build script for tkz-fct
 
 module = "tkz-fct"
-tkzfctv = "1.3c"
-tkzfctd = "2020/04/11"
+tkzfctv = "1.4c"
+tkzfctd = "2020/05/05"
 
 -- Setting variables for .zip file (CTAN)
 textfiles  = {"README.md"}

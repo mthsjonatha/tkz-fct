@@ -69,6 +69,9 @@ Documentation for `tkz-fct` is available on CTAN and in your TeX distribution.
 
 ## History
 
+- Version 1.4c
+  - Correction of a bug in the macro `\tkzFct`.
+  - Correction of the documentation.
 - Version 1.3c
   - Correction of a bug (incompatibility between `tkz-fct` and `tkzexample`).
   - Add compatibility between `tkz-fct` and `tkz-base`.

@@ -9,18 +9,18 @@
 % This work has the LPPL maintenance status `maintained'.
 % The Current Maintainer of this work is Alain Matthes
 
-% Objet :  fonctions numériques en 2D with gnuplot
-% constants from tkz-base
+% Objet :  fonctions numériques en 2D with gnuplot 
+% constants from tkz-base 
 % \tkz@init@xstep
 % \tkz@init@ystep
-\typeout{2020/04/11 1.3c function tkz-fct}
+\typeout{2020/05/01 1.4c function tkz-fct}
 %<--------------------------------------------------------------------------->
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{tkz-fct}[2020/04/11 1.3c function ]
+\ProvidesPackage{tkz-fct}[2020/05/01 1.4c function ] 
 \newcount\tkz@tkzf@fct
-\edef\tkzTWOPTCode{\the\catcode`\:}
-\tkz@tkzf@fct=0 %
-\def\tkzfctloaded{}
+\edef\tkzTWOPTCode{\the\catcode`\:} 
+\tkz@tkzf@fct=0 % 
+\def\tkzfctloaded{} 
 %<--------------------------------------------------------------------------->
 %                          Initialisation
 %<--------------------------------------------------------------------------->
@@ -41,7 +41,7 @@
      \expandafter\@firstoftwo
  \else
     \expandafter\@secondoftwo
- \fi
+ \fi  
 {\FPifneg{#2}%
  \FPneg\FP@tmpd{#2}%
  \FPln\FP@tmpd\FP@tmpd
@@ -58,7 +58,7 @@
  \FPmul\FP@tmpd\FP@tmpd{#3}%
  \FPexp\FP@tmp\FP@tmpd
 \fi
-}%
+}% 
 {\FPln\FP@tmpd{#2}%
  \FPmul\FP@tmpd\FP@tmpd{#3}%
  \FPexp\FP@tmp\FP@tmpd}%
@@ -67,36 +67,36 @@
 \FP@endmessage{}%
 \let#1\FP@tmp}
 %<--------------------------------------------------------------------------->
-%                               Styles
+%                               Styles 
 %<--------------------------------------------------------------------------->
 \def\tkzfctset#1{\pgfkeys{/tkztan/.cd,#1}}
 
 \tkzfctset{tan style/.style={->,>=latex}}                %<--------------------------------------------------------------------------->
-%                               tkzFct
+%                               tkzFct 
 %<--------------------------------------------------------------------------->
-\newif\iftkz@draw
+\newif\iftkz@draw 
 \newif\iftkz@fp
-\def\tkz@dmin{-5}\def\tkz@dmax{5}
+\def\tkz@dmin{-5}\def\tkz@dmax{5} 
 \global\let\tkz@tmp@xa\tkz@init@xmin% modif  2016
 \global\let\tkz@tmp@xb\tkz@init@xmax% modif  2016
 \global\let\tkz@tmp@ya\tkz@init@ymin% modif  2016
-\global\let\tkz@tmp@yb\tkz@init@ymax% modif  2016
+\global\let\tkz@tmp@yb\tkz@init@ymax% modif  2016 
 \catcode`\:=12
 \pgfkeys{/@tkzfct/.cd,
-			domain/.code args			= {#1:#2} {\FPeval\tkz@min{(#1)}
-                           				     \FPeval\tkz@max{(#2)}},
- 		  domain      				  = \tkz@tmp@xa:\tkz@tmp@xb,
- 			samples/.store in     = \tkz@fct@samples,
-			id/.store in          = \tkz@fct@id,
-			fp/.is          if    = tkz@fp,
-			fp/.default           = false,
-			samples    				 	  = 200,
-			fp          				  = true,
-			id          				  = tkzfct,
-		 /@tkzfct/.search also  = {/tikz},
+      domain/.code args     = {#1:#2} {\FPeval\tkz@min{(#1)}
+                                       \FPeval\tkz@max{(#2)}},
+      domain                = \tkz@tmp@xa:\tkz@tmp@xb,
+      samples/.store in     = \tkz@fct@samples, 
+      id/.store in          = \tkz@fct@id,
+      fp/.is          if    = tkz@fp,
+      fp/.default           = false,
+      samples               = 200,
+      fp                    = true,
+      id                    = tkzfct,  
+     /@tkzfct/.search also  = {/tikz},
 }%
 
-\def\tkzFct{\pgfutil@ifnextchar[{\tkzActivOff\tkz@fct}{\tkz@fct[]}}
+\def\tkzFct{\pgfutil@ifnextchar[{\tkzActivOff\tkz@fct}{\tkz@fct[]}} 
 \def\tkz@fct[#1]#2{%
 \pgfqkeys{/@tkzfct}{#1}%
 \iftkz@init@NO%
@@ -105,51 +105,53 @@
 \else
   \FPset{\tkz@x@delta}{0}%
   \FPset{\tkz@y@delta}{0}%
-\fi%
+\fi% 
 % stockage
 \advance\tkz@tkzf@fct by  1 %
 \FPdiv\tkz@ba{\tkz@min}{\tkz@init@xstep}%
 \FPdiv\tkz@bb{\tkz@max}{\tkz@init@xstep}%
 \def\x{(x*\tkz@init@xstep)}%
 \expandafter\edef\csname tkzFctgnu\@alph\tkz@tkzf@fct \endcsname{#2}%
-\expandafter\edef\csname tkzFctgnuLast\endcsname{#2}
-% %%%%%%%
+\expandafter\edef\csname tkzFctgnuLast\endcsname{#2}     
+%%%%%%%
 \begin{scope}
- 	\clip (\tkz@xa,\tkz@ya) rectangle (\tkz@xb,\tkz@yb);
- 	\draw[#1,	xshift  = -\tkz@x@delta cm,yshift  = -\tkz@y@delta cm]%
-    	plot[		samples    = \tkz@fct@samples,id=\tkz@fct@id,
-			domain= \tkz@ba:\tkz@bb] function{(#2)/\tkz@init@ystep};%
+  \clip (\tkz@xa,\tkz@ya) rectangle (\tkz@xb,\tkz@yb);
+  % \draw[#1,  xshift  = -\tkz@x@delta cm,yshift  = -\tkz@y@delta cm]
+   \draw[#1, xshift  = -\tkz@x@delta cm,]
+         plot[samples = \tkz@fct@samples,id=\tkz@fct@id,
+         domain= \tkz@ba:\tkz@bb] function{((#2)-\tkz@init@yorigine)/\tkz@init@ystep};
+  % \node {-\tkz@y@delta cm };
 \end{scope}
 % %%%%%%%
    \let\tkz@tmp@xstep\tkz@init@xstep
    \def\tkz@init@xstep{1}
-\iftkz@fp%
+\iftkz@fp%       
    \ReplaceSubStrings{\tkz@tempa}{#2}{log}{ln}
    \ReplaceSubStrings{\tkz@tempb}{\tkz@tempa}{**}{^}
    \ReplaceSubStrings{\tkz@tempa}{\tkz@tempb}{\x}{x}
    \ReplaceSubStrings{\tkz@tempb}{\tkz@tempa}{asin}{arcsin}
    \ReplaceSubStrings{\tkz@tempa}{\tkz@tempb}{acos}{arccos}
-   \ReplaceSubStrings{\tkz@tempb}{\tkz@tempa}{atan}{arctan}
+   \ReplaceSubStrings{\tkz@tempb}{\tkz@tempa}{atan}{arctan} 
   \expandafter\edef\csname tkzFct\@alph\tkz@tkzf@fct\endcsname{\tkz@tempb}%
   \expandafter\edef\csname tkzFctLast\endcsname{\tkz@tempb}%
- \fi
-  \let\tkz@init@xstep\tkz@tmp@xstep
- \catcode`\:=\tkzTWOPTCode\relax
+ \fi 
+  \let\tkz@init@xstep\tkz@tmp@xstep 
+ \catcode`\:=\tkzTWOPTCode\relax   
 }%
 %<--------------------------------------------------------------------------->
 %                            point d'une courbe (new method)
 %<--------------------------------------------------------------------------->
-\pgfkeys{/tkzfctpt/.cd,
-			draw/.is if   		  = tkz@draw,
-			draw/.default 		  = true,
-			with/.store in      = \tkz@fct@used,
-			ref/.store in     	= \tkz@fct@ref,
-            draw  				= false,
-            with  				= {},
-            ref   				= {}
-			}
-
-\def\tkzDefPointByFct{\pgfutil@ifnextchar[{\tkz@fctpoint}{\tkz@fctpoint[]}}
+\pgfkeys{/tkzfctpt/.cd, 
+      draw/.is if         = tkz@draw,
+      draw/.default       = true,
+      with/.store in      = \tkz@fct@used,
+      ref/.store in       = \tkz@fct@ref,
+            draw          = false,
+            with          = {},
+            ref           = {}
+      }
+                           
+\def\tkzDefPointByFct{\pgfutil@ifnextchar[{\tkz@fctpoint}{\tkz@fctpoint[]}}   
 \def\tkz@fctpoint[#1](#2){%
 \pgfqkeys{/tkzfctpt}{#1}
    \FPeval\x{(#2)}%
@@ -157,10 +159,10 @@
        \FPeval\tkz@fx{\tkzFctLast}
    \else
       \edef\tkz@fct{\csname tkzFct\tkz@fct@used\endcsname}
-       \FPeval\tkz@fx{\tkz@fct}
+      \FPeval\tkz@fx{\tkz@fct}
     \fi
   \tkzDefPoint(\x,\tkz@fx){tkzPointResult}%
-       \iftkz@draw
+  \iftkz@draw
      \tkzDrawPoint(tkzPointResult)
      \fi
 \ifx\tkzutil@empty\tkz@fct@ref
@@ -172,34 +174,34 @@
 %                                  tangente \tkzDrawTangentLine
 %<--------------------------------------------------------------------------->
 \pgfkeys{/@tkztan/.cd,
-			with/.store in         	= \tkz@fct@used,
-			kr/.store in           	= \tkz@tan@kr,
-			kl/.store in           	= \tkz@tan@kl,
-			draw/.is if            	= tkz@draw,
-			draw/.default          	= true,
-            draw  					= false,
-            with  					= {},
-            kr    					= 1,
-            kl    					= 1,
-			  /@tkztan/.search also  = {/tikz},
+      with/.store in          = \tkz@fct@used,
+      kr/.store in            = \tkz@tan@kr,
+      kl/.store in            = \tkz@tan@kl,
+      draw/.is if             = tkz@draw,
+      draw/.default           = true,
+            draw            = false,
+            with            = {},   
+            kr              = 1,
+            kl              = 1,
+        /@tkztan/.search also  = {/tikz},
 }%
 %<--------------------------------------------------------------------------->
 \def\tkzDrawTangentLine{\pgfutil@ifnextchar[{\tkz@DrawTangentLine}{%
-                                             \tkz@DrawTangentLine[]}}
+                                             \tkz@DrawTangentLine[]}} 
 \def\tkz@DrawTangentLine[#1](#2){%
 \begingroup
 \pgfqkeys{/@tkztan}{#1}
 \FPeval\x{(#2)}%
 \ifx\tkzutil@empty\tkz@fct@used
     \FPeval\tkz@img{\tkzFctLast}
-    \let\tkz@fct\tkzFctLast
-\else
+    \let\tkz@fct\tkzFctLast  
+\else 
    \edef\tkz@fct{\csname tkzFct\tkz@fct@used\endcsname}
       \FPeval\tkz@img{\tkz@fct}
  \fi
 \let\tkz@old@img\tkz@img
 \let\tkz@old@x\x
-\tkzDefPoint(\tkz@old@x,\tkz@old@img){tkzPointResult}
+\tkzDefPoint(\tkz@old@x,\tkz@old@img){tkzPointResult}  
 \FPdiv{\tkz@krx}{\tkz@tan@kr}{\tkz@init@xstep}
 \FPdiv{\tkz@kry}{\tkz@tan@kr}{\tkz@init@ystep}
 \FPdiv{\tkz@klx}{\tkz@tan@kl}{\tkz@init@xstep}
@@ -208,7 +210,7 @@
 \FPifzero{\tkz@tan@kr}%
 \else
 \FPadd{\x}{\tkz@old@x}{0.000001}%
-\FPeval\tkz@img{\tkz@fct}%
+\FPeval\tkz@img{\tkz@fct}% 
 \FPadd{\tkz@deltay}{\tkz@old@img}{-\tkz@img}%
 \FPmul{\tkz@slope}{\tkz@deltay}{1000000}%
 \protected@edef\tkz@temp{%
@@ -218,8 +220,8 @@
 % demi tgt --> gauche
 \FPifzero{\tkz@tan@kl}%
  \else
-\FPadd{\x}{\tkz@old@x}{-0.000001}
-\FPeval\tkz@img{\tkz@fct}%
+\FPadd{\x}{\tkz@old@x}{-0.000001} 
+\FPeval\tkz@img{\tkz@fct}% 
 \FPadd{\tkz@deltay}{\tkz@old@img}{-\tkz@img}
 \FPmul{\tkz@slope}{\tkz@deltay}{-1000000}
 \protected@edef\tkz@temp{%
@@ -228,43 +230,43 @@
   \fi
      \iftkz@draw
      \tkzDrawPoint(tkzPointResult)
-     \fi
-\endgroup
+     \fi  
+\endgroup 
 }
 %<--------------------------------------------------------------------------->
 %                               tkzArea
 %<--------------------------------------------------------------------------->
 \pgfkeys{%
 /tkzarea/.cd,
-				domain/.code args={#1:#2}         {\FPeval\tkz@min{(#1)}
-				                                   \FPeval\tkz@max{(#2)}},
-				opacity/.store in              	=  \tkz@fct@opacity,
-				id/.store in                   	=  \tkz@fct@id,
-				color/.store in                	=  \tkz@fct@color,
-				samples/.store in             	=  \tkz@fct@samples,
-				domain    						= -5:5,
-				color     						=  \tkz@otherlinecolor,
-				samples   						=  200,
-				id        						=  tkzfonct,
-				opacity   						=  .5,
-				  /tkzarea/.search also  = {/tikz}
-								   }
+        domain/.code args={#1:#2}         {\FPeval\tkz@min{(#1)}
+                                           \FPeval\tkz@max{(#2)}}, 
+        opacity/.store in               =  \tkz@fct@opacity,
+        id/.store in                    =  \tkz@fct@id,
+        color/.store in                 =  \tkz@fct@color,
+        samples/.store in               =  \tkz@fct@samples,
+        domain                = -5:5,   
+        color                 =  \tkz@otherlinecolor,
+        samples               =  200,
+        id                    =  tkzfonct,
+        opacity               =  .5,
+          /tkzarea/.search also  = {/tikz}
+                   }
 \def\tkzArea{\pgfutil@ifnextchar[{\catcode`\:=12 \tkz@aire}{\tkz@aire[]}}
 \def\tkz@aire[#1]{%
-\begingroup
+\begingroup   
 \pgfqkeys{/tkzarea}{#1}
 \iftkz@init@NO
    \FPdiv{\tkz@x@delta}{\tkz@init@xorigine}{\tkz@init@xstep}%
    \FPdiv{\tkz@y@delta}{\tkz@init@yorigine}{\tkz@init@ystep}%
-\else
+\else        
    \FPset{\tkz@x@delta}{0}
    \FPset{\tkz@y@delta}{0}%
 \fi%
 \def\x{(x*\tkz@init@xstep)}
 \FPdiv\tkz@ba{\tkz@min}{\tkz@init@xstep}%
 \FPdiv\tkz@bb{\tkz@max}{\tkz@init@xstep}%
-\begin{scope}[]
-  \path[ fill,
+\begin{scope}[] 
+  \path[ fill,  
          xshift       = -\tkz@x@delta cm,
          yshift       = -\tkz@y@delta cm,
          color        = \tkz@fct@color,%
@@ -276,28 +278,28 @@
    \end{scope}
 \endgroup
 }
-\let\tkzDrawArea\tkzArea
+\let\tkzDrawArea\tkzArea 
 
 %<--------------------------------------------------------------------------->
 %                             tkzAreafg
 %<--------------------------------------------------------------------------->
 \pgfkeys{/@tkzareafg/.cd,
-		domain/.code args				  ={#1:#2} {\FPeval\tkz@min{(#1)}
-		                           				  \FPeval\tkz@max{(#2)}},
-		between/.code args				={#1 and #2}{\def\tkzfct@below{#1}
-		                               				 \def\tkzfct@above{#2}},
-		opacity/.store in         =  \tkz@fct@opacity,
-		id/.store in              =  \tkz@fct@id,
-		color/.store in           =  \tkz@fct@color,
-		samples/.store in         =  \tkz@fct@samples,
-		domain     						    =  -5:5,
-		between    						    =  a and b,
-		color      						    =  lightgray,
-		samples    						    =  200,
-		id         						    =  tkzfonct,
-		opacity    						    =  .5,
+    domain/.code args         ={#1:#2} {\FPeval\tkz@min{(#1)}
+                                        \FPeval\tkz@max{(#2)}},
+    between/.code args        ={#1 and #2}{\def\tkzfct@below{#1}
+                                           \def\tkzfct@above{#2}},
+    opacity/.store in         =  \tkz@fct@opacity,
+    id/.store in              =  \tkz@fct@id,
+    color/.store in           =  \tkz@fct@color,
+    samples/.store in         =  \tkz@fct@samples,
+    domain                    =  -5:5,
+    between                   =  a and b,
+    color                     =  lightgray,
+    samples                   =  200,
+    id                        =  tkzfonct,
+    opacity                   =  .5,
   /@tkzareafg/.search also  = {/tikz}
-								   }
+                   }
 
 \def\tkzAreafg{\pgfutil@ifnextchar[{\tkz@airefg}{\tkz@airefg[]}}
 \def\tkz@airefg[#1]{%
@@ -340,10 +342,10 @@
 \def\tkz@fctp[#1]#2#3{%
 \begingroup
 \pgfkeys{/@tkzfct/.cd,
-			domain      = \tkz@pamin:\tkz@pamax,
-			samples     = 200,
-			fp          = true,
-			id          = tkzfct}
+      domain      = \tkz@pamin:\tkz@pamax,
+      samples     = 200,
+      fp          = true,
+      id          = tkzfct}
 \pgfqkeys{/@tkzfct}{#1}
   \iftkz@init@NO%
      \FPdiv{\tkz@x@delta}{\tkz@init@xorigine}{\tkz@init@xstep}%
@@ -374,11 +376,11 @@
 \def\tkz@FctPolar[#1]#2{%
 \begingroup
 \pgfkeys{/@tkzfct/.cd,
-			domain      = \tkz@pomin:\tkz@pomax,
-			fp          = true,
-			samples     = 200,
-			id          = tkzfctpolar
-			}
+      domain      = \tkz@pomin:\tkz@pomax,
+      fp          = true,
+      samples     = 200,
+      id          = tkzfctpolar
+      }
 \pgfqkeys{/@tkzfct}{#1}
   \iftkz@init@NO%
      \FPdiv{\tkz@x@delta}{\tkz@init@xorigine}{\tkz@init@xstep}%
@@ -403,11 +405,11 @@
 %                               tkzDrawRiemannSum
 %<--------------------------------------------------------------------------->
 \pgfkeys{/@tkzriemann/.cd,
-			interval/.code args={#1:#2} {\FPeval\tkz@min{(#1)}
-			                             \FPeval\tkz@max{(#2)}},
-			number/.store in                =  \tkz@fct@nb,
-			opacity/.store in               =  \tkz@fct@opacity,
-			color/.store in                 =  \tkz@fct@color,
+      interval/.code args={#1:#2} {\FPeval\tkz@min{(#1)}
+                                   \FPeval\tkz@max{(#2)}},
+      number/.store in                =  \tkz@fct@nb,
+      opacity/.store in               =  \tkz@fct@opacity,
+      color/.store in                 =  \tkz@fct@color,
  /@tkzriemann/.search also  = {/tikz},
 }
 \def\tkzDrawRiemannSum{\pgfutil@ifnextchar[{%
@@ -415,10 +417,10 @@
 \def\tkz@DrawRiemannSum[#1]{%
 \begingroup
 \pgfkeys{/@tkzriemann/.cd,
-		interval        = 1:2,
-		number          = 10,
-		opacity         = 0.5,
-		line width      = 1pt
+    interval        = 1:2,
+    number          = 10,
+    opacity         = 0.5,
+    line width      = 1pt
 }
 \pgfqkeys{/@tkzriemann}{#1}
   \iftkz@init@NO%
@@ -437,9 +439,9 @@
   \FPeval\tkz@fx{\tkzFcta}
   \FPadd\tkz@next{\x}{\tkz@delta}
   \draw[ color=\tkz@fct@color,
- 		 opacity=\tkz@fct@opacity,
-		 /@tkzriemann/.cd,#1] (\x ,0 ) rectangle (\tkz@next,
-		 \tkz@fx/\tkz@init@ystep );
+     opacity=\tkz@fct@opacity,
+     /@tkzriemann/.cd,#1] (\x ,0 ) rectangle (\tkz@next,
+     \tkz@fx/\tkz@init@ystep );
 }
    \end{scope}
 \endgroup
@@ -448,23 +450,23 @@
 %                               tkzDrawRiemannSumInf
 %<--------------------------------------------------------------------------->
 \pgfkeys{/@tkzriemann/.cd,
-			interval/.code args={#1:#2} {\FPeval\tkz@min{(#1)}
-			                             \FPeval\tkz@max{(#2)}},
-			number/.store in                =  \tkz@fct@nb,
-			opacity/.store in               =  \tkz@fct@opacity,
-			color/.store in                 =  \tkz@fct@color,
-			/@tkzriemann/.search also   = {/tikz},
-								   }
+      interval/.code args={#1:#2} {\FPeval\tkz@min{(#1)}
+                                   \FPeval\tkz@max{(#2)}},
+      number/.store in                =  \tkz@fct@nb,
+      opacity/.store in               =  \tkz@fct@opacity,
+      color/.store in                 =  \tkz@fct@color,
+      /@tkzriemann/.search also   = {/tikz},
+                   }
 \def\tkzDrawRiemannSumInf{\pgfutil@ifnextchar[{%
                  \catcode`\:=12 \tkz@DrawRiemannSumInf}{\tkz@DrawRiemannSumInf[]}}
 \def\tkz@DrawRiemannSumInf[#1]{%
 \begingroup
 \pgfkeys{/@tkzriemann/.cd,
-		interval        = 1:2,
-		number          = 10,
-		opacity         = 0.5,
-		line width      = 1pt
-		}
+    interval        = 1:2,
+    number          = 10,
+    opacity         = 0.5,
+    line width      = 1pt
+    }
 \pgfqkeys{/@tkzriemann}{#1}
   \iftkz@init@NO%
      \FPdiv{\tkz@x@delta}{\tkz@init@xorigine}{\tkz@init@xstep}%
@@ -505,11 +507,11 @@
 \def\tkz@DrawRiemannSumSup[#1]{%
 \begingroup
 \pgfkeys{/@tkzriemann/.cd,
-			interval        = 1:2,
-			number          = 10,
-			opacity         = 0.5,
-			line width      = 1pt
-			}
+      interval        = 1:2,
+      number          = 10,
+      opacity         = 0.5,
+      line width      = 1pt
+      }
 \pgfqkeys{/@tkzriemann}{#1}
   \iftkz@init@NO%
      \FPdiv{\tkz@x@delta}{\tkz@init@xorigine}{\tkz@init@xstep}%
@@ -550,11 +552,11 @@
 \def\tkz@DrawRiemannSumMid[#1]{%
 \begingroup
 \pgfkeys{/@tkzriemann/.cd,
-		interval        = 1:2,
-		number          = 10,
-		opacity         = 0.5,
-		line width      = 1pt
-		}
+    interval        = 1:2,
+    number          = 10,
+    opacity         = 0.5,
+    line width      = 1pt
+    }
 \pgfqkeys{/@tkzriemann}{#1}
   \iftkz@init@NO%
      \FPdiv{\tkz@x@delta}{\tkz@init@xorigine}{\tkz@init@xstep}%
@@ -590,14 +592,14 @@
 \def\tkz@ComT{v}  % need
 
 \pgfkeys{/@tkzxh/.cd,
- 		 posgrad/.store in  = \tkz@tkzXh@posgrad,
- 		 left/.store in     = \tkz@tkzXh@left,
- 		 right/.store in    = \tkz@tkzXh@right,
- 		 color/.store in    = \tkz@tkzXh@color,
- 		 posgrad = {below=6 pt},
- 		 color   = \tkz@mainlinecolor,
- 		 left    = {},
- 		 right   = {},
+     posgrad/.store in  = \tkz@tkzXh@posgrad,
+     left/.store in     = \tkz@tkzXh@left,
+     right/.store in    = \tkz@tkzXh@right,
+     color/.store in    = \tkz@tkzXh@color,
+     posgrad = {below=6 pt},
+     color   = \tkz@mainlinecolor,
+     left    = {},
+     right   = {},
   }
 \def\tkzXH{\pgfutil@ifnextchar[{\tkz@xh}{\tkz@xh[]}}
 \def\tkz@xh[#1]#2{%
@@ -635,11 +637,11 @@
 %
 % \def\tkz@Tan[#1]#2(#3)#{
 % \pgfkeys{/@tkztan/.cd,
-% 		draw 	= 	false,
-% 		with	=	{},
-% 		kr   	= 	1,
-% 		kl   	= 	1
-% 		}
+%     draw  =   false,
+%     with  = {},
+%     kr    =   1,
+%     kl    =   1
+%     }
 % \pgfqkeys{/@tkztan}{#1}
 %  \global\edef\tkz@opttan{#1}
 %   \FPeval\x{(#3)}%
@@ -698,6 +700,6 @@
   \let\tkz@init@xstep\tkz@tmp@xstep
 }
 %<--------------------------  the end --------------------------------------->
-\endinput
+\endinput 
 
-
+ 
