@@ -1,6 +1,6 @@
 # tkz-fct – Tools for drawing graphs of functions
 
-Release 1.3c 2020/04/11
+Release 1.4c 2020/05/05
 
 ## Description
 

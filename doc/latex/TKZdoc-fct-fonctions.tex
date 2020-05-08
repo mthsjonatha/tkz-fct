@@ -5,7 +5,7 @@
 \subsection{Tracé d'une fonction avec gnuplot \tkzcname{tkzFct}}
 Cette première macro est la plus importante car elle permet de tracer la représentation graphique d'une fonction continue .\hypertarget{tfct}{}
 
-\begin{NewMacroBox}{tkzFct}{\oarg{local options}\var{gnuplot expression}} 
+\begin{NewMacroBox}{tkzFct}{\oarg{local options}\var{gnuplot expression}}
 \emph{La fonction est donnée en utilisant la syntaxe de gnuplot. x est la variable sauf si \tkzname{xstep} est différent de 1, dans ce cas la variable est \tkzcname{x}.}
 
 \medskip
@@ -16,7 +16,7 @@ Cette première macro est la plus importante car elle permet de tracer la repré
 \TAline{gnuplot expression}{x**3}{** représente la puissance $\wedge$}
 \bottomrule
 \end{tabular}
- 
+
 \emph{L'expression est de la forme 2*x+1 ; 3*log(x) ; x*exp(x) ; x*x*x+x*x+x. }
 
 Les options sont celles de \TIKZ.
@@ -25,7 +25,7 @@ Les options sont celles de \TIKZ.
 \toprule
 options             & défaut & définition     \\
 \midrule
-\TOline{domain}{xmin:xmax}{domaine de la fonction} 
+\TOline{domain}{xmin:xmax}{domaine de la fonction}
 \TOline{samples}{200}{nombre de points utilisés}
 \TOline{id} {tkzfct}{permet d'identifier les noms des fichiers auxiliaires}
 \TOline{color}{black}{couleur de la ligne}
@@ -36,7 +36,7 @@ options             & défaut & définition     \\
 
 \tkzBomb Lorsque \tkzname{xstep} est différent de $1$, il est nécessaire de remplacer $x$ par |\x|.
 \tkzHand Il faut bien évidemment avoir initialisé l'environnement à l'aide  \tkzcname{tkzInit} avant d'appeler \tkzcname{tkzFct}.
-\tkzBomb Attention à ne pas mettre d'espace entre les arguments.   
+\tkzBomb Attention à ne pas mettre d'espace entre les arguments.
 %<--------------------------------------------------------------------------->
 \subsection{option : \tkzname{samples}}
 
@@ -83,7 +83,7 @@ On demande 400 valeurs pour la table qui va permettre le tracé. Par défaut, la
 \tkzLabelX
 \tkzDrawY[label={\textit{Litres}}]
 \tkzFct[domain = 0.1:100 ]{50/\x}
-\end{tikzpicture} 
+\end{tikzpicture}
 \end{tkzexample}
 
 
@@ -127,12 +127,12 @@ Pour obtenir des droites, on peut utiliser \tkzname{gnuplot} même si l'outil es
  \tkzFct[color=red,domain=0:10,samples=2]{2*x+5}
  \tkzFct[color=blue,domain=0:10,samples=2]{-x+15}
  \tkzFct[color=green,domain=0:10,samples=2]{7} % 7/5=1
- \tkzFct[color=purple,domain=0:10,samples=2]{7.}%7.0/5 =1.2  
-\end{tikzpicture}   
+ \tkzFct[color=purple,domain=0:10,samples=2]{7.}%7.0/5 =1.2
+\end{tikzpicture}
 \end{tkzexample}
    %<--------------------------------------------------------------------------->
 \subsection{Sous-grille}
- 
+
    $y=(x-4)\text{e}^{-0.25x+5}$
 
 Il est possible de dessiner une autre grille.
@@ -165,9 +165,9 @@ Toutes les macros de  \tkzname{tkz-base} sont bien sûr utilisables, en voici qu
 	 \tkzText(-2,1.25){$\mathcal{C}_{f}$}
 	 \tkzDefPoint(2,0){A} \tkzDrawPoint(A)  \tkzLabelPoints(A)
 	 \end{tikzpicture}
-	\end{tkzexample}  
+	\end{tkzexample}
 \end{center}
 
-  
+
 %<--------------------------------------------------------------------------->
 \endinput

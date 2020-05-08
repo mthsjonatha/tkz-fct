@@ -8,31 +8,31 @@ Créer un dossier \tikz[remember picture,baseline=(n1.base)]\node [fill=blue!30,
 
 \medskip
 \begin{itemize}\setlength{\itemsep}{5pt}
-\item   sous OS X \colorbox{blue!30}{\textbf{/Users/ego/Library/texmf}}; 
+\item   sous OS X \colorbox{blue!30}{\textbf{/Users/ego/Library/texmf}};
 \item   sous Ubuntu \colorbox{blue!30}{\textbf{/home/ego/texmf}}.
 \end{itemize}
 
 \medskip
 \begin{enumerate}
-\item    
+\item
 
- Placez le fichier \tikz[remember picture,baseline=(n2.base)]\node [fill=blue!20,draw] (n2) {tkz-fct.sty}; 
- dans le dossier \tikz[baseline=(p.base)]\node [fill=blue!20,draw] (p) {tkz};.   
+ Placez le fichier \tikz[remember picture,baseline=(n2.base)]\node [fill=blue!20,draw] (n2) {tkz-fct.sty};
+ dans le dossier \tikz[baseline=(p.base)]\node [fill=blue!20,draw] (p) {tkz};.
 
 
 
 \medskip
-\begin{tikzpicture} [remember picture,rotate=90] 
+\begin{tikzpicture} [remember picture,rotate=90]
 
 \node (texmf)   at (4,2)  [draw,fill=blue!30 ] {texmf};
 
-\node (tex)     at (6,0)   [draw ] {tex}; 
+\node (tex)     at (6,0)   [draw ] {tex};
 \node (doc)     at (2,0)   [draw ] {doc};
 
 \node (texgen)  at (7,-2)  [draw ] {generic};
 \node (docgen)  at (0,-2)  [draw ] {generic};
 
-\node (latex)   at (4,-2)  [draw ] {latex}; 
+\node (latex)   at (4,-2)  [draw ] {latex};
 
 \node (genpgf)  at (7,-4)  [draw] {pgf};
 \node (latpgf)  at (5,-4)  [draw] {pgf};
@@ -44,16 +44,16 @@ Créer un dossier \tikz[remember picture,baseline=(n1.base)]\node [fill=blue!30,
 \node (tkb)     at (4,-6)  [draw,fill=blue!20] {tkzbase};
 \node (tke)     at (2,-6)  [draw,fill=blue!20] {tkzeuclide};
 
-\node (tari)     at (9,-11)  [draw,fill=green!20] {tkz-tools-arith.tex};  
-\node (tuti)     at (8,-11)  [draw,fill=green!20] {tkz-tools-utilities.tex}; 
+\node (tari)     at (9,-11)  [draw,fill=green!20] {tkz-tools-arith.tex};
+\node (tuti)     at (8,-11)  [draw,fill=green!20] {tkz-tools-utilities.tex};
 \node (tmisc)    at (7,-11)  [draw,fill=green!20] {tkz-tools-misc.tex};
 \node (tmath)    at (6,-11)  [draw,fill=green!20] {tkz-tools-math.tex};
 \node (tbas)     at (5,-11)  [draw,fill=green!20]  {tkz-tools-base.tex};
-\node (base)     at (4,-11)  [draw,fill=green!20]  {tkz-base.sty}; 
+\node (base)     at (4,-11)  [draw,fill=green!20]  {tkz-base.sty};
 \node (cfg)      at (3,-11)  [draw,fill=red!20]   {tkz-base.cfg};
-\node (mark)     at (2,-11)  [draw,fill=red!20]   {tkz-obj-marks.tex}; 
+\node (mark)     at (2,-11)  [draw,fill=red!20]   {tkz-obj-marks.tex};
 \node (pts)      at (1,-11)  [draw,fill=red!20]   {tkz-obj-points.tex};
-\node (seg)      at (0,-11)  [draw,fill=red!20]   {tkz-obj-segments.tex}; 
+\node (seg)      at (0,-11)  [draw,fill=red!20]   {tkz-obj-segments.tex};
 
 
 
@@ -61,44 +61,44 @@ Créer un dossier \tikz[remember picture,baseline=(n1.base)]\node [fill=blue!30,
 \draw[-open triangle 90](texmf.south east) -- (doc.north west)   ;
 
 \draw[-open triangle 90](tex.north east) --(texgen.south west)    ;
-\draw[-open triangle 90](tex.south east) -- (latex.north west)   ; 
-\draw[-open triangle 90](texgen.east) -- (genpgf.west)   ;  
+\draw[-open triangle 90](tex.south east) -- (latex.north west)   ;
+\draw[-open triangle 90](texgen.east) -- (genpgf.west)   ;
 
-\draw[-open triangle 90](doc.south east) -- (docgen.north west)   ; 
-\draw[-open triangle 90](docgen.east) -- (docpgf.west)   ; 
+\draw[-open triangle 90](doc.south east) -- (docgen.north west)   ;
+\draw[-open triangle 90](docgen.east) -- (docpgf.west)   ;
 
-\draw[-open triangle 90](latex.north east) -- (latpgf.south west)   ; 
-\draw[-open triangle 90](latex.east) -- (tkz.west)   ;    
- 
+\draw[-open triangle 90](latex.north east) -- (latpgf.south west)   ;
+\draw[-open triangle 90](latex.east) -- (tkz.west)   ;
+
 \draw[-open triangle 90,blue!40](tkz.east) to[out=-90,in=90](fct.west) ;
-\draw[-open triangle 90,blue!40](tkz.east) to[out=-90,in=90](tkb.west) ; 
-\draw[-open triangle 90,blue!40](tkz.east) to[out=-90,in=90](tke.west) ; 
+\draw[-open triangle 90,blue!40](tkz.east) to[out=-90,in=90](tkb.west) ;
+\draw[-open triangle 90,blue!40](tkz.east) to[out=-90,in=90](tke.west) ;
 
 \draw[-open triangle 90,blue!40](tkb.east) to[out=-90,in=90](tari.west) ;
-\draw[-open triangle 90,blue!40](tkb.east) to[out=-90,in=90](tuti.west) ; 
-\draw[-open triangle 90,blue!40](tkb.east) to[out=-90,in=90](tmisc.west) ; 
-\draw[-open triangle 90,blue!40](tkb.east) to[out=-90,in=90](tmath.west) ; 
-\draw[-open triangle 90,blue!40](tkb.east) to[out=-90,in=90](tbas.west) ; 
-\draw[-open triangle 90,blue!40](tkb.east) to[out=-90,in=90](base.west) ; 
-\draw[-open triangle 90,blue!40](tkb.east) to[out=-90,in=90](cfg.west) ; 
-\draw[-open triangle 90,blue!40](tkb.east) to[out=-90,in=90](mark.west) ; 
-\draw[-open triangle 90,blue!40](tkb.east) to[out=-90,in=90](pts.west) ; 
-\draw[-open triangle 90,blue!40](tkb.east) to[out=-90,in=90](seg.west) ; 
+\draw[-open triangle 90,blue!40](tkb.east) to[out=-90,in=90](tuti.west) ;
+\draw[-open triangle 90,blue!40](tkb.east) to[out=-90,in=90](tmisc.west) ;
+\draw[-open triangle 90,blue!40](tkb.east) to[out=-90,in=90](tmath.west) ;
+\draw[-open triangle 90,blue!40](tkb.east) to[out=-90,in=90](tbas.west) ;
+\draw[-open triangle 90,blue!40](tkb.east) to[out=-90,in=90](base.west) ;
+\draw[-open triangle 90,blue!40](tkb.east) to[out=-90,in=90](cfg.west) ;
+\draw[-open triangle 90,blue!40](tkb.east) to[out=-90,in=90](mark.west) ;
+\draw[-open triangle 90,blue!40](tkb.east) to[out=-90,in=90](pts.west) ;
+\draw[-open triangle 90,blue!40](tkb.east) to[out=-90,in=90](seg.west) ;
 
 \end{tikzpicture}
 
 \begin{tikzpicture}[remember picture,overlay]
         \path[->,thin,red!50,>=latex] (n1) edge [bend left] (tkz);
         \path[->,thin,red!50,>=latex] (n2) edge [bend left] (fct);
-\end{tikzpicture}     
+\end{tikzpicture}
 
 \vfill
 \newpage
 \item Ouvrir un terminal, puis faire \tkzname{sudo texhash} si nécessaire.
 \item Vérifier que  \tkzname{Ti\emph{k}Z 2.10}\index{TikZ@Ti\emph{k}Z} est installé car c'est la version  minimum pour le bon fonctionnement de \tkzname{tkz-fct}. \tkzname{tkz-base} doit aussi être installé, de même le binaire « gnuplot» doit être installé sur votre ordinateur. \tkzname{fp.sty} est intensément utilisé mais il est présent dans toutes les distributions.
-\end{enumerate}    
+\end{enumerate}
 
- 
+
 \subsection{Avec MikTeX sous Windows XP}\NameDist{MikTeX}\NameSys{Windows XP}
 
 Je ne connais pas grand-chose à ce système mais un utilisateur de mes packages \textbf{Wolfgang Buechel} a eu la gentillesse de me faire parvenir ce qui suit~:
@@ -109,10 +109,10 @@ Pour ajouter \tkzname{tkz-fct.sty} à MiKTeX\footnote{Essai réalisé avec la ve
   \item ajouter un dossier \tkzname{tkz} dans le dossier
        \textcolor{red}{\texttt{[MiKTeX-dir]/tex/latex}}
   \item copier \tkzname{tkz-fct.sty} et tous les packages nécessaires à son fonctionnement  dans le dossier \tkzname{tkz},
-  \item mettre à jour  MiKTeX, pour cela dans shell DOS lancer la commande   \textbf{\textcolor{red}{|mktexlsr -u|}} 
-  
+  \item mettre à jour  MiKTeX, pour cela dans shell DOS lancer la commande   \textbf{\textcolor{red}{|mktexlsr -u|}}
+
    ou bien encore, choisir \textcolor{red}{|Start/Programs/Miktex/Settings/General|}
-   
+
     puis appuyer sur le bouton  \textbf{\textcolor{red}{|Refresh FNDB|}}.
 \end{itemize}
 
@@ -120,33 +120,33 @@ Pour ajouter \tkzname{tkz-fct.sty} à MiKTeX\footnote{Essai réalisé avec la ve
 
 Pour résumer,  \tkzname{Ti\emph{k}Z 2.10} est nécessaire,  ensuite soit \tkzname{tkz-fct} est dans votre distribution et le seul problème est l'installation de \tkzname{gnuplot}; soit il n'est pas dans votre distribution et dans ce cas, il suffit de créer un dossier qui le contiendra ainsi que \tkzname{tkz-base} et les fichiers qui l'accompagnent.
 
-Au moment où j'écris ces lignes les fichiers nécessaires pour utiliser \tkzname{tkz-fct} sont~:  
+Au moment où j'écris ces lignes les fichiers nécessaires pour utiliser \tkzname{tkz-fct} sont~:
 
-\vspace*{8pt}  
+\vspace*{8pt}
 \begin{itemize}
-  
+
   \item \tkzname{tkz-fct.sty} un fichier
-  
-\vspace*{20pt}  
+
+\vspace*{20pt}
   \item  \tkzname{tkz-base} dossier nécessaire qui comprend~:
-  
-  \vspace*{8pt} 
+
+  \vspace*{8pt}
   \begin{itemize}
     \item \tkzname{tkz-base.sty}  fichier principal
     \item \tkzname{tkz-base.cfg}  fichier de configuration
     \item \tkzname{tkz-tools-base.tex}
-    \item \tkzname{tkz-tools-arith.tex} 
+    \item \tkzname{tkz-tools-arith.tex}
     \item \tkzname{tkz-tools-misc.tex}
-    \item \tkzname{tkz-tools-utilities.tex} 
+    \item \tkzname{tkz-tools-utilities.tex}
     \item \tkzname{tkz-obj-points.tex}
     \item \tkzname{tkz-obj-segments.tex}
-    \item \tkzname{tkz-obj-marks.tex} 
-   \end{itemize} 
-   
-\vspace*{20pt}     
-  \item  \tkzname{tkz-euclide} dossier qui comprend~: 
-  
-  \vspace*{8pt}  
+    \item \tkzname{tkz-obj-marks.tex}
+   \end{itemize}
+
+\vspace*{20pt}
+  \item  \tkzname{tkz-euclide} dossier qui comprend~:
+
+  \vspace*{8pt}
   \begin{itemize}
     \item \tkzname{tkz-euclide.sty}  fichier principal
     \item \tkzname{tkz-tools-intersections.tex}
@@ -162,8 +162,8 @@ Au moment où j'écris ces lignes les fichiers nécessaires pour utiliser \tkzna
     \item \tkzname{tkz-obj-sectors.tex}
     \item \tkzname{tkz-obj-protractor.tex}
 \end{itemize}
-                 
+
 \end{itemize}
- 
+
 \endinput
 
